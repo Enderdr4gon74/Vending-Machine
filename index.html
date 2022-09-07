@@ -12,6 +12,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="assets/style/main.css">
   <link rel="stylesheet" href="assets/style/style.css">
+  <link rel="stylesheet" href="//cdn.materialdesignicons.com/6.9.96/css/materialdesignicons.min.css">
   <title>Vending-Machine</title>
 </head>
 
@@ -25,11 +26,36 @@
       </a>
     </nav>
   </header>
-  <main>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-12">
-          <div id="app"></div>
+  <main class="container-fluid">
+    <div class="row">
+      <div class="col-8">
+          <div class="row p-3" id="snacks">
+            <div class="col-12 col-md-4">
+              <img class="img-fluid" src="assets/img/Hersheys.png" alt="Hersheys">
+              <div class="d-flex justify-content-between">
+                <h3>Name</h3>
+                <h3>Cost</h3>
+              </div>
+              <button class="btn btn-info width-100" onclick=""><i class="mdi mdi-plus-thick"></i> <i class="mdi mdi-arrow-right-bold"></i> <i class="mdi mdi-cart"></i></button>
+            </div>
+          </div>
+      </div>
+      <div class="col-4 p-4 bg-primary height-100">
+        <div class="d-flex flex-column bg-light p-3" id="receipt">
+          <div class="d-flex justify-content-between">
+            <h3>Receipt</h3>
+            <h3>Total: $0</h3>
+          </div>
+          <div class="d-flex justify-content-between align-items-center mt-3">
+            <div class="d-flex flex-column align-items-start">
+              <h3>Name</h3>
+              <h3>price * amount = total:(price*amount)</h3>
+            </div>
+            <button class="btn btn-danger" onclick="app.snacksController.minusFromCart('${this.name}')"><i class="mdi mdi-delete-outline"></i></button>
+          </div>
+          <div class="d-flex justify-content-end">
+            <button class="btn btn-success" onclick="app.snacksController.resetCart()">Purchase</button>
+          </div>
         </div>
       </div>
     </div>
